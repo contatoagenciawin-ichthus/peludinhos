@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { WhatsAppLink } from "./WhatsAppLink";
 
-const BRAND_LOGO = "https://drive.google.com/thumbnail?id=1lnrFFIAJHFk_7-VIo1koidkDdl8Z4zgC&sz=w1000";
+const BRAND_LOGO = "/brand/logo-peludinhos.webp";
 
 export function Header() {
   return (
