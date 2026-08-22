@@ -1,6 +1,11 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site-data";
+import { SITE_LIVE, SITE_URL } from "@/lib/site-data";
 
 export default function robots(): MetadataRoute.Robots {
-  return { rules: { userAgent: "*", allow: "/" }, sitemap: `${SITE_URL}/sitemap.xml` };
+  return {
+    rules: SITE_LIVE
+      ? { userAgent: "*", allow: "/" }
+      : { userAgent: "*", disallow: "/" },
+    sitemap: SITE_LIVE ? `${SITE_URL}/sitemap.xml` : undefined,
+  };
 }
