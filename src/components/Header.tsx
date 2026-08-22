@@ -11,8 +11,8 @@ export function Header() {
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <Link href="/dermatologia-veterinaria">Dermatologia</Link>
-          <Link href="/dra-daniela">Dra. Daniela</Link>
-          <Link href="/onde-atendemos">Onde atende</Link>
+          <Link href="/dra-daniela">Dra. Dani</Link>
+          <Link href="/onde-atendemos">Onde atendemos</Link>
           <Link href="/para-veterinarios">Para veterinários</Link>
         </nav>
         <WhatsAppLink>Agendar atendimento</WhatsAppLink>
