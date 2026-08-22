@@ -2,109 +2,211 @@ import Link from "next/link";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { conditions, locations } from "@/lib/site-data";
 
+const legacyAsset = (name: string) =>
+  `https://raw.githubusercontent.com/contatoagenciawin-ichthus/peludinhos-skin-care/main/src/assets/${name}`;
+
+const procedures = [
+  {
+    number: "01",
+    title: "Prick test",
+    text: "Recurso diagnóstico para investigação de alergias quando houver indicação clínica.",
+  },
+  {
+    number: "02",
+    title: "Microagulhamento",
+    text: "Procedimento dermatológico que pode integrar protocolos específicos de tratamento da pele.",
+  },
+  {
+    number: "03",
+    title: "Peeling de diamante",
+    text: "Recurso complementar para condições em que a renovação e o cuidado da pele façam parte da estratégia terapêutica.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
-      <section className="hero section">
-        <div className="container hero-grid">
-          <div>
+      <section className="home-hero">
+        <div className="container home-hero-grid">
+          <div className="home-hero-copy">
             <span className="eyebrow">Dermatologia veterinária especializada</span>
-            <h1>Saúde da pele, pelos e ouvidos de cães e gatos exige investigação especializada.</h1>
-            <p className="lead">A Dra. Daniela atende casos dermatológicos em Americana e clínicas parceiras da região, com avaliação individualizada e acompanhamento ao longo do tratamento.</p>
+            <h1>Coceira, alergias e otites recorrentes merecem investigação além do sintoma.</h1>
+            <p className="lead">
+              Atendimento dermatológico para cães e gatos em Americana, Campinas, Sumaré e Hortolândia, com avaliação individualizada e acompanhamento dos casos.
+            </p>
             <div className="actions">
-              <WhatsAppLink>Ver disponibilidade pelo WhatsApp</WhatsAppLink>
-              <Link className="button button-secondary" href="/para-veterinarios">Sou médico-veterinário</Link>
+              <WhatsAppLink>Agendar atendimento</WhatsAppLink>
+              <Link className="button button-secondary" href="/onde-atendemos">Ver locais de atendimento</Link>
+            </div>
+            <div className="hero-proof" aria-label="Principais frentes de atendimento">
+              <span>Coceira persistente</span>
+              <span>Otites recorrentes</span>
+              <span>Alergias e atopia</span>
+              <span>Alterações de pele e pelos</span>
             </div>
           </div>
-          <div className="media-placeholder" aria-label="Espaço reservado para fotografia real da Dra. Daniela em atendimento">
-            <span>Fotografia clínica real<br/>Dra. Daniela + paciente</span>
+
+          <div className="hero-visual">
+            <div className="hero-photo-frame">
+              <img
+                src={legacyAsset("pet-vet-2.jpg")}
+                alt="Atendimento veterinário com cão"
+                className="hero-photo"
+              />
+            </div>
+            <div className="hero-location-card">
+              <span>Atendimento regional</span>
+              <strong>Americana + região</strong>
+              <p>Uma agenda, diferentes locais de atendimento.</p>
+            </div>
+            <div className="hero-accent" aria-hidden="true" />
           </div>
         </div>
       </section>
 
-      <section className="section soft-section">
-        <div className="container narrow">
-          <span className="eyebrow">Quando procurar avaliação especializada</span>
-          <h2>Quando o problema persiste ou volta, é importante investigar além do sintoma.</h2>
-          <p className="lead smaller">Coceira frequente, otites recorrentes, alterações na pele, falhas de pelagem e alergias podem ter causas diferentes e exigir investigação dermatológica específica.</p>
+      <section className="home-intro section">
+        <div className="container section-heading-grid">
+          <div>
+            <span className="eyebrow">Quando procurar</span>
+            <h2>Quando o problema volta, o próximo passo não deveria ser apenas trocar o produto ou repetir o tratamento.</h2>
+          </div>
+          <p className="lead smaller">
+            Problemas dermatológicos podem ter causas diferentes e se manifestar de formas parecidas. Uma avaliação especializada ajuda a organizar a investigação e definir uma condução mais adequada para cada paciente.
+          </p>
         </div>
-        <div className="container cards-grid">
-          {conditions.map((item) => (
-            <Link className="card" href={`/condicoes/${item.slug}`} key={item.slug}>
+
+        <div className="container symptom-grid">
+          {conditions.map((item, index) => (
+            <Link className="symptom-card" href={`/condicoes/${item.slug}`} key={item.slug}>
+              <span className="card-index">0{index + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              <span className="link-arrow">Entender melhor →</span>
+              <span className="link-arrow">Saiba quando investigar →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="section">
-        <div className="container split">
-          <div>
-            <span className="eyebrow">A avaliação dermatológica</span>
-            <h2>Histórico, exame clínico e recursos diagnósticos orientam a condução de cada caso.</h2>
+      <section className="section clinical-section">
+        <div className="container clinical-grid">
+          <div className="clinical-photo-wrap">
+            <img
+              src={legacyAsset("vet-exam.jpg")}
+              alt="Avaliação dermatológica veterinária"
+              className="clinical-photo"
+              loading="lazy"
+            />
+            <div className="clinical-photo-caption">Avaliação dermatológica individualizada</div>
           </div>
-          <div className="stack-list">
-            <p><strong>Avaliação especializada:</strong> pele, pelagem, ouvidos, histórico e evolução dos sintomas.</p>
-            <p><strong>Exames dermatológicos:</strong> citologia e testes específicos quando indicados.</p>
-            <p><strong>Procedimentos:</strong> recursos dermatológicos definidos conforme a necessidade do paciente.</p>
-            <p><strong>Acompanhamento:</strong> especialmente relevante em doenças crônicas e recorrentes.</p>
+
+          <div className="clinical-copy">
+            <span className="eyebrow">Como funciona a investigação</span>
+            <h2>Não existe um único protocolo para todo problema de pele.</h2>
+            <p className="lead smaller">
+              Histórico, exame clínico e recursos diagnósticos orientam quais hipóteses precisam ser investigadas e o que faz sentido para aquele cão ou gato.
+            </p>
+            <div className="clinical-steps">
+              <div><strong>01</strong><span><b>Entender o histórico</b> sintomas, recorrência, tratamentos prévios e evolução.</span></div>
+              <div><strong>02</strong><span><b>Avaliar o paciente</b> pele, pelagem, ouvidos e sinais associados.</span></div>
+              <div><strong>03</strong><span><b>Investigar quando necessário</b> exames e testes são indicados conforme o caso.</span></div>
+              <div><strong>04</strong><span><b>Acompanhar a resposta</b> especialmente em doenças crônicas e recorrentes.</span></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section brand-band">
-        <div className="container split">
+      <section className="section procedure-section">
+        <div className="container section-heading-grid procedure-heading">
           <div>
-            <span className="eyebrow light">Atendimento regional</span>
-            <h2>Uma especialista, uma agenda central e diferentes locais de atendimento.</h2>
-            <p>A disponibilidade da Dra. Daniela é organizada de forma centralizada. Pelo WhatsApp da Peludinhos, o atendimento pode considerar sua cidade e indicar o local e horário compatíveis.</p>
-            <WhatsAppLink variant="secondary">Encontrar o atendimento mais conveniente</WhatsAppLink>
+            <span className="eyebrow">Exames e procedimentos</span>
+            <h2>Recursos especializados entram quando fazem sentido para a investigação ou tratamento.</h2>
           </div>
-          <div className="location-list">
+          <p>
+            A indicação é individual. O objetivo não é acumular procedimentos, mas usar o recurso correto quando ele acrescenta informação ou benefício ao caso.
+          </p>
+        </div>
+        <div className="container procedure-grid">
+          {procedures.map((item) => (
+            <div className="procedure-card" key={item.title}>
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="container procedure-link-wrap">
+          <Link className="text-link" href="/dermatologia-veterinaria">Conheça a avaliação dermatológica →</Link>
+        </div>
+      </section>
+
+      <section className="section location-section">
+        <div className="container location-layout">
+          <div className="location-copy">
+            <span className="eyebrow light">Onde atendemos</span>
+            <h2>Americana é o núcleo da Peludinhos. A Dra. Dani também atende em clínicas parceiras da região.</h2>
+            <p>
+              O atendimento pelo WhatsApp ajuda a identificar a cidade e direcionar para o local mais conveniente, respeitando a disponibilidade da agenda.
+            </p>
+            <WhatsAppLink variant="secondary">Encontrar atendimento</WhatsAppLink>
+          </div>
+          <div className="city-grid">
             {locations.map((location) => (
-              <Link href={`/onde-atendemos/${location.slug}`} key={location.slug}>
-                <strong>{location.city}</strong><span>{location.label}</span>
+              <Link className="city-card" href={`/onde-atendemos/${location.slug}`} key={location.slug}>
+                <span>{location.owned ? "Clínica própria" : "Clínica parceira"}</span>
+                <strong>{location.city}</strong>
+                <p>{location.label}</p>
+                <small>Ver atendimento →</small>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container split">
-          <div className="portrait-placeholder"><span>Dra. Daniela<br/>foto profissional</span></div>
-          <div>
-            <span className="eyebrow">Dra. Daniela</span>
-            <h2>Dermatologia veterinária como especialidade, não como atendimento genérico.</h2>
-            <p className="lead smaller">A atuação é dedicada à investigação e acompanhamento de doenças dermatológicas em cães e gatos, com atendimento próprio e em clínicas parceiras.</p>
-            <p className="pending-note">Formação, CRMV e títulos serão inseridos após validação documental.</p>
+      <section className="section doctor-section">
+        <div className="container doctor-layout">
+          <div className="doctor-editorial">
+            <span>Peludinhos</span>
+            <strong>Dermatologia veterinária como especialidade.</strong>
+            <p>Investigação, acompanhamento e decisões guiadas pelo quadro de cada paciente.</p>
+          </div>
+          <div className="doctor-copy">
+            <span className="eyebrow">Dra. Dani</span>
+            <h2>Uma atuação dedicada à dermatologia de cães e gatos.</h2>
+            <p className="lead smaller">
+              A Peludinhos reúne atendimento especializado, clínica própria em Americana e uma rede regional de atendimento para aproximar a dermatologia veterinária de mais tutores.
+            </p>
+            <p className="pending-note">Formação, CRMV e títulos profissionais serão publicados após validação documental.</p>
             <Link className="text-link" href="/dra-daniela">Conheça a atuação profissional →</Link>
           </div>
         </div>
       </section>
 
       <section className="section pro-section">
-        <div className="container pro-card">
+        <div className="container pro-card pro-card-redesign">
           <div>
             <span className="eyebrow">Para médicos-veterinários e clínicas</span>
-            <h2>Suporte especializado em dermatologia para casos que exigem uma investigação mais específica.</h2>
-            <p>A Peludinhos também atua em conjunto com profissionais e clínicas, apoiando a investigação, a confirmação diagnóstica e a condução dermatológica, com preservação da relação do veterinário responsável com o tutor.</p>
+            <h2>Um caminho especializado para casos dermatológicos que pedem investigação mais específica.</h2>
+            <p>
+              A Peludinhos pode atuar em conjunto com o veterinário responsável, apoiando a investigação e a condução dermatológica sem romper a relação construída com o tutor.
+            </p>
           </div>
           <div className="actions vertical-actions">
-            <Link className="button button-primary" href="/para-veterinarios">Conhecer o suporte especializado</Link>
+            <Link className="button button-primary" href="/para-veterinarios">Área para veterinários</Link>
             <WhatsAppLink audience="veterinario" intent="suporte" variant="text">Conversar sobre um caso →</WhatsAppLink>
           </div>
         </div>
       </section>
 
-      <section className="section final-cta">
-        <div className="container narrow center">
-          <span className="eyebrow">Atendimento pelo WhatsApp</span>
-          <h2>Quer verificar o local e a disponibilidade para atendimento?</h2>
-          <p>O canal da Peludinhos concentra o atendimento e orienta a partir da sua necessidade, localização e disponibilidade da Dra. Daniela.</p>
-          <WhatsAppLink>Iniciar atendimento</WhatsAppLink>
+      <section className="section final-cta home-final-cta">
+        <div className="container final-cta-layout">
+          <div>
+            <span className="eyebrow">Atendimento Peludinhos</span>
+            <h2>Seu cão ou gato apresenta um problema de pele que persiste ou sempre volta?</h2>
+          </div>
+          <div>
+            <p>Conte brevemente o que está acontecendo e informe sua cidade. O atendimento orienta o próximo passo e o local disponível para consulta.</p>
+            <WhatsAppLink>Falar com a Peludinhos</WhatsAppLink>
+          </div>
         </div>
       </section>
     </>
