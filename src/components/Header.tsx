@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { WhatsAppLink } from "./WhatsAppLink";
 
+const BRAND_LOGO = "https://drive.google.com/thumbnail?id=1lnrFFIAJHFk_7-VIo1koidkDdl8Z4zgC&sz=w1000";
+
 export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link className="brand" href="/" aria-label="Peludinhos — início">
-          <strong>PELUDINHOS</strong>
-          <span>Dermatologia Veterinária</span>
+        <Link className="brand brand-logo" href="/" aria-label="Peludinhos Dermatologia Veterinária — início">
+          <img src={BRAND_LOGO} alt="Peludinhos Dermatologia Veterinária" />
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
           <Link href="/dermatologia-veterinaria">Dermatologia</Link>
