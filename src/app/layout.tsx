@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SITE_NAME, SITE_URL } from "@/lib/site-data";
+import { SITE_LIVE, SITE_NAME, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME} | Dra. Daniela`, template: `%s | Peludinhos` },
   description: "Dermatologia veterinária especializada para cães e gatos, com atendimento em Americana, Campinas, Sumaré e Hortolândia.",
   alternates: { canonical: "/" },
+  robots: {
+    index: SITE_LIVE,
+    follow: SITE_LIVE,
+  },
   openGraph: { title: SITE_NAME, type: "website", locale: "pt_BR", url: SITE_URL },
 };
 
