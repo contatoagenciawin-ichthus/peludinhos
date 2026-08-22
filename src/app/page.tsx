@@ -2,9 +2,9 @@ import Link from "next/link";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { conditions, locations } from "@/lib/site-data";
 
-const PHOTO_HERO = "https://drive.google.com/thumbnail?id=1TXc2lTI_yRS6BK6JDqPnvd85WHBJ9Swr&sz=w1600";
-const PHOTO_CLINICAL = "https://drive.google.com/thumbnail?id=100Js1HlbkZIP9qvI0V8D21sXcsIqmjHq&sz=w1600";
-const PHOTO_DOCTOR = "https://drive.google.com/thumbnail?id=1Di5Q34x8nS7D_miQR43Me5zcQUF2K2jG&sz=w1600";
+const PHOTO_HERO = "/images/home-dra-dani-paciente.webp";
+const PHOTO_CLINICAL = "/images/home-investigacao.webp";
+const PHOTO_DOCTOR = "/images/home-dra-dani.webp";
 
 export default function HomePage() {
   return (
