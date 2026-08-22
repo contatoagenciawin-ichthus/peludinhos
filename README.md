@@ -21,6 +21,13 @@ Novo site institucional da Peludinhos/Dra. Daniela, reconstruído do zero em Nex
 - `/para-veterinarios`
 - `/duvidas-frequentes`
 
+## Deploy
+- repositório GitHub conectado ao projeto `peludinhos` na Vercel;
+- commits em `main` disparam deploy de produção;
+- branches e pull requests devem gerar previews automáticos;
+- o domínio oficial só será conectado após aprovação visual e revisão final;
+- durante o pré-lançamento, a aplicação permanece configurada para `noindex`.
+
 ## Antes da publicação
 1. inserir logo e fotografias originais em alta resolução;
 2. validar formação, CRMV e títulos da Dra. Daniela;
