@@ -6,7 +6,7 @@ import { SITE_LIVE, SITE_NAME, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${SITE_NAME} | Dra. Daniela`, template: `%s | Peludinhos` },
+  title: { default: `${SITE_NAME} | Dermatologia Veterinária`, template: `%s | Peludinhos` },
   description: "Dermatologia veterinária especializada para cães e gatos, com atendimento em Americana, Campinas, Sumaré e Hortolândia.",
   alternates: { canonical: "/" },
   robots: {
