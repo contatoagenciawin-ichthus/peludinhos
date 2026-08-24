@@ -2,9 +2,9 @@ import Link from "next/link";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
 import { conditions, locations } from "@/lib/site-data";
 
-const PHOTO_HERO = "/images/home-dra-dani-paciente.avif";
-const PHOTO_CLINICAL = "/images/home-investigacao.avif";
-const PHOTO_DOCTOR = "/images/home-dra-dani.avif";
+const PHOTO_HERO = "/images/hero-dra-dani-v2.jpg";
+const PHOTO_CLINICAL = "/images/investigacao-dra-dani-v2.jpg";
+const PHOTO_DOCTOR = "/images/dra-dani-clinica-v2.jpg";
 
 export default function HomePage() {
   return (
