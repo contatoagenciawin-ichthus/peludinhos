@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SITE_LIVE, SITE_NAME, SITE_URL } from "@/lib/site-data";
 
-const SITE_DESCRIPTION = "Dermatologia veterinária especializada para cães e gatos, com atendimento em Americana, Campinas, Sumaré e Hortolândia.";
+const SITE_DESCRIPTION = "Dermatologia veterinária para cães e gatos com a Dra. Danielle Hernandes Guimarães. Atendimento em Americana, Campinas, Sumaré e Hortolândia.";
 const INSTAGRAM_URL = "https://www.instagram.com/peludinhosdermavet/";
 const FACEBOOK_URL = "https://www.facebook.com/peludinhosdermavet";
 const SOCIAL_IMAGE = "/opengraph-image?v=peludinhos-20260825";
@@ -13,12 +13,27 @@ const FAVICON = "/favicon.svg?v=peludinhos-20260825";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${SITE_NAME} | Dermatologia Veterinária`, template: `%s | Peludinhos` },
+  title: {
+    default: "Dermatologia Veterinária em Americana e Região | Peludinhos",
+    template: "%s | Peludinhos",
+  },
   description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   robots: {
     index: SITE_LIVE,
     follow: SITE_LIVE,
+    googleBot: SITE_LIVE
+      ? {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        }
+      : {
+          index: false,
+          follow: false,
+        },
   },
   icons: {
     icon: [{ url: FAVICON, type: "image/svg+xml" }],
@@ -48,11 +63,29 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationJsonLd = {
+const veterinaryCareJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "VeterinaryCare",
+  "@id": `${SITE_URL}/#veterinary-care`,
   name: SITE_NAME,
   url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  telephone: "+55 19 99164-6193",
+  logo: `${SITE_URL}/brand/logo-peludinhos.webp`,
+  image: `${SITE_URL}/opengraph-image`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Rua Peru, 103 — Frezzarin",
+    addressLocality: "Americana",
+    addressRegion: "SP",
+    addressCountry: "BR",
+  },
+  areaServed: [
+    { "@type": "City", name: "Americana" },
+    { "@type": "City", name: "Campinas" },
+    { "@type": "City", name: "Sumaré" },
+    { "@type": "City", name: "Hortolândia" },
+  ],
   sameAs: [INSTAGRAM_URL, FACEBOOK_URL],
 };
 
@@ -62,7 +95,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(veterinaryCareJsonLd) }}
         />
         <Header />
         <main>{children}</main>
