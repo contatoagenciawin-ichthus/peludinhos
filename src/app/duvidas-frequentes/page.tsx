@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "Dúvidas frequentes", alternates: { 
 
 const faqs = [
   ["Preciso de encaminhamento?", "O tutor pode entrar em contato diretamente com a Peludinhos. Pacientes também podem chegar por encaminhamento de médicos-veterinários e clínicas."],
-  ["Onde a Dra. Daniela atende?", "Em Americana e também em clínicas parceiras de Campinas, Sumaré e Hortolândia, conforme a agenda central da profissional."],
+  ["Onde a Dra. Danielle atende?", "Em Americana e também em clínicas parceiras de Campinas, Sumaré e Hortolândia, conforme a agenda central da profissional."],
   ["Como faço para agendar?", "O atendimento é iniciado pelo WhatsApp da Peludinhos, que orienta sobre local e disponibilidade."],
   ["Já sou paciente. Preciso explicar tudo novamente?", "O fluxo do ScribVet está sendo preparado para reconhecer responsável e animal e recuperar o histórico pertinente, com os controles de segurança e autorização aplicáveis."],
 ];
