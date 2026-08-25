@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
-import { locations } from "@/lib/site-data";
+import { DOCTOR_SHORT_NAME, locations } from "@/lib/site-data";
 
 type Props = { params: Promise<{ cidade: string }> };
 
@@ -26,8 +26,8 @@ export default async function LocationPage({ params }: Props) {
       <div className="container narrow">
         <span className="eyebrow">Onde atendemos</span>
         <h1>Dermatologia veterinária em {location.city}.</h1>
-        <p className="lead">{location.owned ? `Atendimento na ${location.label}, ${location.address}.` : "A Dra. Daniela atende na cidade em clínica parceira, conforme períodos liberados em sua agenda central."}</p>
-        <p>Não é necessário escolher uma agenda separada. Pelo WhatsApp da Peludinhos, o atendimento verifica a disponibilidade da Dra. Daniela e orienta sobre o local compatível.</p>
+        <p className="lead">{location.owned ? `Atendimento na ${location.label}, ${location.address}.` : `${DOCTOR_SHORT_NAME} atende na cidade em clínica parceira, conforme períodos liberados em sua agenda central.`}</p>
+        <p>Não é necessário escolher uma agenda separada. Pelo WhatsApp da Peludinhos, o atendimento verifica a disponibilidade da {DOCTOR_SHORT_NAME} e orienta sobre o local compatível.</p>
         <WhatsAppLink location={location.city}>Ver disponibilidade em {location.city}</WhatsAppLink>
       </div>
     </section>
