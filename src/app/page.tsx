@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
-import { conditions, locations } from "@/lib/site-data";
+import {
+  conditions,
+  locations,
+  services,
+  DOCTOR_DISPLAY_NAME,
+  DOCTOR_SHORT_NAME,
+} from "@/lib/site-data";
 
 const PHOTO_HERO = "/images/hero-dra-dani-v2.jpg.jpg";
 const PHOTO_CLINICAL = "/images/investigacao-dra-dani-v2.jpg.jpg";
 const PHOTO_DOCTOR = "/images/dra-dani-clinica-v2.jpg.jpg";
+const PROCEDURE_STYLES = ["procedure-card-orange", "procedure-card-purple", "procedure-card-coral"] as const;
 
 export default function HomePage() {
   return (
@@ -32,7 +39,7 @@ export default function HomePage() {
 
           <div className="hero-visual">
             <div className="hero-photo-frame">
-              <img src={PHOTO_HERO} alt="Dra. Dani durante atendimento veterinário" className="hero-photo" />
+              <img src={PHOTO_HERO} alt={`${DOCTOR_SHORT_NAME} durante atendimento veterinário`} className="hero-photo" />
             </div>
             <div className="hero-location-card">
               <span>Atendimento regional</span>
@@ -71,7 +78,7 @@ export default function HomePage() {
       <section className="section clinical-section">
         <div className="container clinical-grid">
           <div className="clinical-photo-wrap">
-            <img src={PHOTO_CLINICAL} alt="Dra. Dani em ambiente de investigação clínica" className="clinical-photo" loading="lazy" />
+            <img src={PHOTO_CLINICAL} alt={`${DOCTOR_SHORT_NAME} em ambiente de investigação clínica`} className="clinical-photo" loading="lazy" />
             <div className="clinical-photo-caption">Avaliação dermatológica individualizada</div>
           </div>
 
@@ -95,24 +102,22 @@ export default function HomePage() {
       <section className="section procedure-section">
         <div className="container section-heading-grid procedure-heading">
           <div>
-            <span className="eyebrow">Exames e procedimentos</span>
-            <h2>Recursos especializados entram quando fazem sentido para a investigação ou tratamento.</h2>
+            <span className="eyebrow">Atendimentos</span>
+            <h2>Consulta, testes e tratamentos indicados conforme a necessidade de cada caso.</h2>
           </div>
           <p>
-            A indicação é individual. O objetivo não é acumular procedimentos, mas usar o recurso correto quando ele acrescenta informação ou benefício ao caso.
+            A investigação é individualizada. Os recursos clínicos e diagnósticos entram quando acrescentam informação ou benefício à condução do paciente.
           </p>
         </div>
 
         <div className="container procedure-grid">
-          <div className="procedure-card procedure-card-orange">
-            <span>01</span><h3>Prick test</h3><p>Recurso diagnóstico para investigação de alergias quando houver indicação clínica.</p>
-          </div>
-          <div className="procedure-card procedure-card-purple">
-            <span>02</span><h3>Microagulhamento</h3><p>Procedimento dermatológico que pode integrar protocolos específicos de tratamento da pele.</p>
-          </div>
-          <div className="procedure-card procedure-card-coral">
-            <span>03</span><h3>Peeling de diamante</h3><p>Recurso complementar para condições em que o cuidado da pele faça parte da estratégia terapêutica.</p>
-          </div>
+          {services.map((service, index) => (
+            <div className={`procedure-card ${PROCEDURE_STYLES[index % PROCEDURE_STYLES.length]}`} key={service.title}>
+              <span>0{index + 1}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
         </div>
         <div className="container procedure-link-wrap">
           <Link className="text-link" href="/dermatologia-veterinaria">Conheça a avaliação dermatológica →</Link>
@@ -123,7 +128,7 @@ export default function HomePage() {
         <div className="container location-layout">
           <div className="location-copy">
             <span className="eyebrow light">Onde atendemos</span>
-            <h2>Americana é o núcleo da Peludinhos. A Dra. Dani também atende em clínicas parceiras da região.</h2>
+            <h2>Americana é o núcleo da Peludinhos. {DOCTOR_SHORT_NAME} também atende em clínicas parceiras da região.</h2>
             <p>
               Pelo WhatsApp da Peludinhos, o atendimento identifica sua necessidade e sua cidade para orientar o local e a disponibilidade mais convenientes.
             </p>
@@ -145,20 +150,19 @@ export default function HomePage() {
       <section className="section doctor-section">
         <div className="container doctor-layout doctor-layout-photo">
           <div className="doctor-photo-wrap">
-            <img src={PHOTO_DOCTOR} alt="Dra. Dani, médica-veterinária com atuação em dermatologia" className="doctor-photo" loading="lazy" />
+            <img src={PHOTO_DOCTOR} alt={`${DOCTOR_DISPLAY_NAME}, médica-veterinária com atuação em dermatologia`} className="doctor-photo" loading="lazy" />
             <div className="doctor-brand-note">
               <span>Peludinhos</span>
               <strong>Dermatologia veterinária como especialidade.</strong>
             </div>
           </div>
           <div className="doctor-copy">
-            <span className="eyebrow">Dra. Dani</span>
+            <span className="eyebrow">{DOCTOR_DISPLAY_NAME}</span>
             <h2>Uma atuação dedicada à dermatologia de cães e gatos.</h2>
             <p className="lead smaller">
-              A Peludinhos reúne atendimento especializado, estrutura própria em Americana e uma rede regional de atendimento em clínicas parceiras.
+              Pós-graduada em Dermatologia Veterinária, com especialização em Dermatologia Felina e aperfeiçoamento em Alergologia, a Dra. Danielle concentra sua atuação na investigação e no acompanhamento de doenças de pele e ouvidos.
             </p>
-            <p className="pending-note">Formação, CRMV e títulos profissionais serão publicados após validação documental.</p>
-            <Link className="text-link" href="/dra-daniela">Conheça a atuação profissional →</Link>
+            <Link className="text-link" href="/dra-danielle">Conheça a trajetória profissional →</Link>
           </div>
         </div>
       </section>
