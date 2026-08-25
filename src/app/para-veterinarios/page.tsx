@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WhatsAppLink } from "@/components/WhatsAppLink";
+import { DOCTOR_SHORT_NAME } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Suporte dermatológico para veterinários e clínicas",
@@ -46,7 +47,7 @@ export default function VeterinariosPage() {
           <div className="process-grid">
             <div><span>01</span><h3>Apresentação do caso</h3><p>O profissional ou a clínica inicia o contato e compartilha as informações disponíveis.</p></div>
             <div><span>02</span><h3>Organização das pendências</h3><p>O fluxo identifica dados e exames já existentes e orienta o que ainda é necessário para o encaminhamento.</p></div>
-            <div><span>03</span><h3>Avaliação especializada</h3><p>A Dra. Daniela realiza a investigação dermatológica no local e horário compatíveis com o caso.</p></div>
+            <div><span>03</span><h3>Avaliação especializada</h3><p>{DOCTOR_SHORT_NAME} realiza a investigação dermatológica no local e horário compatíveis com o caso.</p></div>
             <div><span>04</span><h3>Continuidade compartilhada</h3><p>As informações pertinentes podem retornar ao profissional encaminhador conforme autorização e necessidade clínica.</p></div>
           </div>
         </div>
