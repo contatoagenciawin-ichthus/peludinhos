@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peludinhos Dermatologia Veterinária">
+  <rect width="64" height="64" rx="14" fill="#fcfbf8"/>
+  <rect x="25" y="8" width="14" height="48" rx="5" fill="#4a4599"/>
+  <rect x="8" y="25" width="48" height="14" rx="5" fill="#4a4599"/>
+  <circle cx="28" cy="30" r="10" fill="#f7aa16"/>
+  <path d="M20 22l4-7 5 6z" fill="#f7aa16"/>
+  <circle cx="39" cy="37" r="9" fill="#f25549"/>
+  <path d="M34 30l2-7 5 6zM42 30l5-6 1 8z" fill="#f25549"/>
+  <circle cx="25" cy="29" r="1.4" fill="#312c78"/>
+  <circle cx="40" cy="36" r="1.3" fill="#312c78"/>
+</svg>
