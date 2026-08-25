@@ -1,6 +1,6 @@
 export const SITE_NAME = "Peludinhos Dermatologia Veterinária";
 export const SITE_URL = "https://peludinhosdermatologia.com.br";
-export const SITE_LIVE = process.env.NEXT_PUBLIC_SITE_LIVE === "true";
+export const SITE_LIVE = process.env.VERCEL_ENV === "production" || process.env.NEXT_PUBLIC_SITE_LIVE === "true";
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5519991646193";
 
 export const DOCTOR_NAME = "Danielle Hernandes Guimarães";
