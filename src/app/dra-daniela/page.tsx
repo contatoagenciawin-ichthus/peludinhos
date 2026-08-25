@@ -7,7 +7,12 @@ export default function DanielaPage() {
   return (
     <section className="section">
       <div className="container split">
-        <div className="portrait-placeholder tall"><span>Fotografia profissional<br/>Dra. Daniela</span></div>
+        <img
+          src="/images/dani-prof.jpg"
+          alt="Dra. Daniela, médica-veterinária da Peludinhos Dermatologia Veterinária"
+          className="portrait-placeholder tall"
+          style={{ width: "100%", height: "620px", objectFit: "cover", objectPosition: "center 20%" }}
+        />
         <div>
           <span className="eyebrow">Dra. Daniela</span>
           <h1>Atuação dedicada à dermatologia veterinária.</h1>
